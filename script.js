@@ -7,24 +7,39 @@ const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)');
 function applyTheme(isLight) {
   if (isLight) {
     document.body.classList.add('light-mode');
-    toggle.textContent = '⚙';
+    if (toggle) toggle.textContent = '⚙';
   } else {
     document.body.classList.remove('light-mode');
-    toggle.textContent = '☾';
+    if (toggle) toggle.textContent = '☾';
   }
 }
 
 // 1. Initial check when the page loads
-applyTheme(prefersLightScheme.matches);
+const storedTheme = localStorage.getItem('theme');
+if (storedTheme !== null) {
+  // Use saved preference if it exists
+  applyTheme(storedTheme === 'light');
+} else {
+  // Otherwise, fallback to the OS default
+  applyTheme(prefersLightScheme.matches);
+}
 
 // 2. Listen for any OS-level theme changes while the user is on the site
 prefersLightScheme.addEventListener('change', (e) => {
-  applyTheme(e.matches);
+  // Only automatically switch with the OS if the user hasn't explicitly saved a preference
+  if (localStorage.getItem('theme') === null) {
+    applyTheme(e.matches);
+  }
 });
 
 // 3. Manual toggle override
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  const isLight = document.body.classList.contains('light-mode');
-  toggle.textContent = isLight ? '⚙' : '☾';
-});
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    toggle.textContent = isLight ? '⚙' : '☾';
+    
+    // Save to localStorage so it persists across pages!
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
