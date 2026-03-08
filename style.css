@@ -1,3 +1,11 @@
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --border-color: #333;
+    --avatar-border-color: #333;
+    --theme-toggle-color: #fff;
+}
+
 /* RESET and BASE */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -6,14 +14,15 @@
 }
 
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
     line-height: 1.8;
     max-width: 860px;
     margin: 0 auto;
     padding: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* NAVBAR */
@@ -32,10 +41,11 @@ nav ul {
 }
 
 nav a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 0.95rem;
     letter-spacing: 0.05em;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -44,12 +54,12 @@ nav a:hover {
 
 /* AVATAR */
 .avatar {
-width: 90px;
+    width: 90px;
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #333;
-    border-radius: 50%;
+    border: 0.5px solid var(--avatar-border-color);
+    transition: filter 0.3s ease, border-color 0.3s ease;
 }
 
 /* HEADINGS */
@@ -79,9 +89,16 @@ h2 {
 footer {
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border-color);
     display: flex;
     gap: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+footer a {
+    color: var(--text-color);
+    opacity: 0.75;
+    transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 footer a:hover {
@@ -92,25 +109,34 @@ footer a:hover {
 #theme-toggle {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--theme-toggle-color);
     font-size: 1.1rem;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: color 0.3s ease, font-size 0.3s ease;
 }
 
 /* LIGHT MODE */
 body.light-mode {
-  background-color: #f9f9f9;
-  color: #111;
+    --bg-color: #ede8d5;
+    --text-color: #1a1a1a;
+    --border-color: #c5bfa8;
+    --avatar-border-color: #aaa;
+    --theme-toggle-color: #c8921a;
 }
 
-body.light-mode nav a,
-body.light-mode footer a,
+body.light-mode .avatar {
+    filter: invert(1);
+}
+
 body.light-mode #theme-toggle {
-  color: #111;
-}
-
-body.light-mode footer {
-  border-top-color: #ccc;
+    font-size: 1.6rem;
 }
 
 /* MOBILE FIX */
