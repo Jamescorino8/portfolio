@@ -92,6 +92,21 @@ h2 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    position: relative;
+    display: block;
+    width: fit-content;
+    
+    /* Animation settings */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease-out;
+}
+
+h2.expanded {
+    max-height: 100px; /* Arbitrary enough to hold standard H2s */
+    opacity: 1;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in;
 }
 
 /* ABOUT SECTION */
@@ -110,7 +125,16 @@ footer {
     border-top: 1px solid var(--border-color);
     display: flex;
     gap: 1.5rem;
-    transition: border-color 0.3s ease;
+    
+    /* Animation settings */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out, border-color 0.3s ease;
+}
+
+footer.revealed {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 footer a {
@@ -155,6 +179,18 @@ body.light-mode .avatar {
 
 body.light-mode #theme-toggle {
     font-size: 1.6rem;
+}
+
+/* STAGGERED PRINT EFFECT */
+.stagger-item {
+    opacity: 0;
+    /* Ensure they don't block clicks when invisible */
+    pointer-events: none;
+}
+
+.stagger-item.printed {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* MOBILE FIX */
