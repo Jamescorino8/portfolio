@@ -136,7 +136,25 @@ document.addEventListener("DOMContentLoaded", () => {
          
          // Wait for CSS slide down to complete before typing
          setTimeout(() => {
-             typeElement(h2, h2Text, runStaggerPrint); // Print rest content after h2
+             typeElement(h2, h2Text, () => {
+                 // Simulated Cmd+Shift+LeftArrow and Cmd+U sequence
+                 
+                 // 1. Pause slightly to mimic human reaction
+                 setTimeout(() => {
+                     // 2. Cmd+Shift+LeftArrow (highlight)
+                     h2.classList.add('highlighted');
+                     
+                     // 3. Pause for user pressing next shortcut
+                     setTimeout(() => {
+                         // 4. Cmd+U (underline), drop highlight (selection ends)
+                         h2.classList.remove('highlighted');
+                         h2.classList.add('underlined');
+                         
+                         // 5. Fire stagger print slightly after to let the underline read
+                         setTimeout(runStaggerPrint, 200);
+                     }, 350);
+                 }, 400); 
+             });
          }, 350); 
       } else {
          // If no h2, run stagger print directly after h1

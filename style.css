@@ -109,6 +109,17 @@ h2.expanded {
     transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in;
 }
 
+/* Simulated Selection Effects */
+h2.highlighted {
+    background-color: var(--selection-bg, #3399ff);
+    color: var(--selection-text, #ffffff);
+}
+
+h2.underlined {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 /* ABOUT SECTION */
 .about {
     margin-bottom: 2rem;
