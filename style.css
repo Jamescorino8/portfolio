@@ -65,9 +65,27 @@ nav a:hover {
 /* HEADINGS */
 h1 {
     font-size: 3rem;
+    line-height: 1.2; /* Explicit line height */
     font-weight: bold;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
+    position: relative;
+    display: block;
+    width: fit-content; /* Helps with cursor positioning */
+}
+
+/* Typing cursor effect */
+.typewriter-cursor::after {
+    content: '|';
+    position: absolute;
+    right: -15px; /* Adjust depending on font size */
+    color: var(--text-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 h2 {

@@ -43,3 +43,32 @@ if (toggle) {
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 }
+
+// 4. Typewriter Effect for h1
+document.addEventListener("DOMContentLoaded", () => {
+  const h1 = document.querySelector('h1');
+  if (h1) {
+    const textToType = h1.textContent;
+    
+    // Lock in the exact rendered height before clearing the text to prevent any layout shift
+    const exactHeight = h1.getBoundingClientRect().height;
+    h1.style.minHeight = `${exactHeight}px`;
+
+    h1.textContent = ''; // clear initial content
+    h1.classList.add('typewriter-cursor'); // add cursor
+
+    let i = 0;
+    const speed = 75; // Adjust typing speed (ms) here
+
+    function typeWriter() {
+      if (i < textToType.length) {
+        h1.textContent += textToType.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    
+    // slight delay before starting to type looks natural
+    setTimeout(typeWriter, 500);
+  }
+});
