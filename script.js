@@ -7,7 +7,7 @@ const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)');
 function applyTheme(isLight) {
   if (isLight) {
     document.body.classList.add('light-mode');
-    if (toggle) toggle.textContent = '☀';
+    if (toggle) toggle.textContent = '☼';
   } else {
     document.body.classList.remove('light-mode');
     if (toggle) toggle.textContent = '⏾';
@@ -37,7 +37,7 @@ if (toggle) {
   toggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     const isLight = document.body.classList.contains('light-mode');
-    toggle.textContent = isLight ? '☀' : '⏾';
+    toggle.textContent = isLight ? '☼' : '⏾';
     
     // Save to localStorage so it persists across pages!
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
@@ -98,10 +98,43 @@ document.addEventListener("DOMContentLoaded", () => {
       h2Text = h2.textContent;
     }
 
-    // Always clear h2 if we are typing h1 first
-    if (h2) {
-      h2.textContent = ''; 
+    // Auto-scale headers to ensure they fit exactly on one line before typing starts
+    function scaleHeadersToFit() {
+      // 1. Get starting font size in pixels
+      let currentFontSize = parseFloat(window.getComputedStyle(h1).fontSize);
+      const originalFontSize = currentFontSize;
+      
+      // 2. Shrink until the text physically measures as a single line
+      while (currentFontSize > 10) {
+        // Measure what a single line SHOULD be at the current font size
+        h1.textContent = 'A';
+        const expectedSingleHeight = h1.offsetHeight;
+        
+        // Put full text back in to see what the actual height is
+        h1.textContent = h1Text;
+        
+        // If the actual height is roughly the size of a single line, it isn't wrapping!
+        if (h1.offsetHeight < expectedSingleHeight * 1.5) {
+            break; 
+        }
+        
+        // Otherwise, shrink by 1px and try again.
+        currentFontSize -= 1;
+        h1.style.fontSize = `${currentFontSize}px`;
+      }
+      
+      // 3. Make H2 font size exactly match H1
+      if (h2) {
+        h2.style.fontSize = `${currentFontSize}px`;
+      }
+      
+      // 4. Clear headers so typewriter animation can begin cleanly
+      h1.textContent = '';
+      if (h2) h2.textContent = ''; 
     }
+    
+    // Execute scaling math instantly
+    scaleHeadersToFit();
 
     // Fire the staggered terminal print effect, then queue the CTA typing
     function runStaggerPrint() {
@@ -161,31 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
          runStaggerPrint();
       }
     });
-
-    /* 
-    -- Persistence h1 logic  --
-    if (!hasSeenH1Type) {
-      // First visit: type h1, then h2
-      typeElement(h1, h1Text, () => {
-        // Mark h1 as seen for future navigations within session
-        sessionStorage.setItem('hasSeenH1Type', 'true');
-        
-        // After h1 is done, type h2 if it exists
-        if (h2) {
-           setTimeout(() => typeElement(h2, h2Text), 300); // slight pause like hitting 'enter'
-        }
-      });
-    } else {
-      // Returning visitor (clicked a link): h1 is already fully typed.
-      // Make sure it doesn't have a cursor.
-      h1.classList.remove('typewriter-cursor'); 
-      
-      // Just type the h2 if it exists
-      if (h2) {
-        // Only a small delay before typing H2
-        setTimeout(() => typeElement(h2, h2Text), 300);
-      }
-    }
-    */
   }
 });
