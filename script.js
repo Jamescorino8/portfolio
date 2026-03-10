@@ -7,10 +7,10 @@ const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)');
 function applyTheme(isLight) {
   if (isLight) {
     document.body.classList.add('light-mode');
-    if (toggle) toggle.textContent = '⚙';
+    if (toggle) toggle.textContent = '☀';
   } else {
     document.body.classList.remove('light-mode');
-    if (toggle) toggle.textContent = '☾';
+    if (toggle) toggle.textContent = '⏾';
   }
 }
 
@@ -37,7 +37,7 @@ if (toggle) {
   toggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     const isLight = document.body.classList.contains('light-mode');
-    toggle.textContent = isLight ? '⚙' : '☾';
+    toggle.textContent = isLight ? '☀' : '⏾';
     
     // Save to localStorage so it persists across pages!
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
