@@ -216,7 +216,8 @@ body.light-mode #theme-toggle {
 }
 
 /* MOBILE FIX */
-@media (max-width: 430px) {
+@media (max-width: 600px) {
   h1 { font-size: 2rem; }
   nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  body { padding: 1rem; }
 }
