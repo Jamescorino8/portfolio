@@ -335,3 +335,64 @@ nav {
   border-color: var(--text-dim);
   text-decoration: none;
 }
+
+/* TERMINAL PROMPT */
+.terminal-prompt {
+  padding: 1.5rem 2rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  opacity: 0.45;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.t-user   { color: var(--green); }
+.t-dollar { color: var(--text); margin-right: 0.3em; }
+
+.t-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* MOBILE FIX */
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .whois-block {
+    flex-direction: column;
+  }
+
+  .whois-avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .project-badge {
+    align-self: flex-start;
+  }
+
+  .links-row {
+    gap: 0.5rem;
+  }
+}
