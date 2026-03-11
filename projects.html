@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<i>
 
     <!-- NAVBAR -->
     <nav>
@@ -22,15 +22,61 @@
         </ul>
     </nav>
     
-    <!-- MAIN -->
-    <main>
+    <div class="page-wrap">
+        <!-- MAIN -->
+        <main>
+            <div class="cmd-line">
+                <span class="t-green">$</span>
+                <span class="cmd-name">ls</span>
+                <span class="cmd-flag">-lt</span>
+                <span class="t-amber">./projects/</span>
+                <span class="cmd-pipe">|</span>
+                <span class="cmd-name">head</span>
+                <span class="cmd-flag">-3</span>
+            </div>
+            <div class="project-list">
+                <a href="#" class="project-row">
+                    <div class="project-left">
+                        <span class="project-tag">PERSONAL</span>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-title">this portfolio</span>
+                        <span class="project-desc">
+                            minimal terminal portfolio. html · css · js. zero frameworks.
+                        </span>
+                    </div>
+                    <span class="project-badge">LIVE</span>
+                </a>
+                <a href="#" class="project-row">
+                    <div class="project-left">
+                        <span class="project-tag">CLI</span>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-title">readme-gen</span>
+                        <span class="project-desc">
+                            scrapes your repo and generates a readme outline automatically.
+                        </span>
+                    </div>
+                    <span class="project-badge wip">WIP</span>
+                </a>
+            </div>
 
-    </main>
-    
-    <!-- TERMINAL PROMPT -->
-    <div class="terminal-prompt">
-        <span class="t-user"></span>james@home:~<span class="t-dollar">$</span>
-        <span class="t-cursor">█</span>
+            <!-- View all link -->
+            <p class="view-all">
+                <span class="t-green">$</span>
+                <span class="cmd-name">ls</span>
+                <span class="t-amber">./projects/</span>
+                <span class="cmd-pipe">—</span>
+                <a href="https://github.com/jamescorino8" class="t-blue">view all on github →</a>
+            </p>
+        </div>
+        </main>
+        
+        <!-- TERMINAL PROMPT -->
+        <div class="terminal-prompt">
+            <span class="t-user"></span>james@home:~<span class="t-dollar">$</span>
+            <span class="t-cursor">█</span>
+        </div>
     </div>
 </body>
 </html>

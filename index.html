@@ -21,10 +21,10 @@
             <li><a href="contact.html" class="nav-link">contact</a></li>
         </ul>
     </nav>
-    
-    <!-- MAIN -->
-    <main>
-        <div class="page-wrap">
+    <div class="page-wrap">
+        <!-- MAIN -->
+        <main>
+            <!-- TERMINAL LINES -->
             <div class="boot-log">
                 <span class="boot-label">OUTPUT</span>
                 <p class="boot-line">
@@ -39,6 +39,8 @@
                     Last login: <span id="boot-time"></span>
                 </p>
             </div>
+
+            <!-- WHOIS -->
             <div class="cmd-line">
                 <span class="t-green">$</span>
                 <span class="cmd-name">whois</span>
@@ -74,6 +76,8 @@
                     </tr>
                 </table>
             </div>
+
+            <!-- ABOUT -->
             <div class="cmd-line">
                 <span class="t-green">$</span>
                 <span class="cmd-name">cat</span>
@@ -95,13 +99,14 @@
                     <a href="mailto:jcorino@albany.edu" class="t-blue">reach out.</a>
                 </p>
             </div>
+
+            <!-- UPDATE LOGS -->
             <div class="cmd-line">
                 <span class="t-green">$</span>
                 <span class="cmd-name">tail</span>
                 <span class="cmd-flag">-n 5</span>
                 <span class="t-amber">updates.log</span>
             </div>
-
             <div class="log-list">
                 <div class="log-entry">
                     <span class="log-date">2026-03</span>
@@ -113,14 +118,28 @@
                     <span class="log-badge wip">WIP</span>
                     <span class="log-text">building readme-gen cli tool</span>
                 </div>
-            </div>
-        </div> 
-    </main>
+            </div> 
+        </main>
 
-    <!-- TERMINAL PROMPT -->
-    <div class="terminal-prompt">
-        <span class="t-user"></span>james@home:~<span class="t-dollar">$</span>
-        <span class="t-cursor">█</span>
+        <div class="links-section">
+            <div class="cmd-line">
+                <span class="t-green">$</span>
+                <span class="cmd-name">cat</span>
+                <span class="t-amber">links.txt</span>
+            </div>
+            <div class="links-row">
+                <a href="mailto:jcorino@albany.edu" class="link-pill">✉ email</a>
+                <a href="https://linkedin.com/in/james-corino/" target="_blank" class="link-pill">⌗ linkedin</a>
+                <a href="https://github.com/jamescorino8" target="_blank" class="link-pill">⌥ github</a>
+                <a href="jamescorinoresume.pdf" target="_blank" class="link-pill">↗ resume</a>
+            </div>
+        </div>
+
+        <!-- TERMINAL PROMPT -->
+        <div class="terminal-prompt">
+            <span class="t-user"></span>james@home:~<span class="t-dollar">$</span>
+            <span class="t-cursor">█</span>
+        </div>
     </div>
 
     <script src="script.js"></script>
