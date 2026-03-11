@@ -191,3 +191,40 @@ nav {
   color: var(--text);
   margin-bottom: 3rem;
 }
+
+/* LOG LIST */
+.log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+.log-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.log-date {
+  color: var(--text-dim);
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: 4.5rem;
+}
+
+.log-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+.log-badge.new { border-color: var(--amber); color: var(--amber); }
+.log-badge.wip { border-color: var(--blue);  color: var(--blue);  }
+.log-badge.fix { border-color: var(--green); color: var(--green); }
+.log-badge.old { border-color: var(--border); color: var(--text-dim); }
+.log-text { color: var(--text); }
