@@ -216,6 +216,60 @@ body.light-mode #theme-toggle {
     pointer-events: auto;
 }
 
+/* PROJECT CARDS */
+.project-card {
+    border: 1px solid var(--text-color);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.project-name {
+    font-weight: bold;
+}
+
+.project-year {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.project-desc {
+    opacity: 0.8;
+    margin: 0;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.75rem;
+    border: 1px solid var(--text-color);
+    padding: 0.1rem 0.4rem;
+    opacity: 0.6;
+}
+
+.project-link {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
 /* MOBILE FIX */
 @media (max-width: 600px) {
   h1 { font-size: 2rem; }
