@@ -67,6 +67,7 @@ h1 {
     font-size: 3rem;
     line-height: 1.2; /* Explicit line height */
     font-weight: bold;
+    white-space: nowrap;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
     position: relative;
