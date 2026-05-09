@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ─── CSS VARIABLES ─────────────────────────── */
+:root {
+  --bg-color: #000;
+  --text-color: #fff;
+  --border-color: #333;
+  --avatar-border-color: #333;
+  --theme-toggle-color: #fff;
+}
+
+body.light-mode {
+  --bg-color: #ede8d5;
+  --text-color: #1a1a1a;
+  --border-color: #c5bfa8;
+  --avatar-border-color: #aaa;
+  --theme-toggle-color: #c8921a;
+}
+
+/* ─── BASE ──────────────────────────────────── */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Space Mono', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── H1 / H2 ───────────────────────────────── */
+h1 {
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+h2 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ─── CTA ───────────────────────────────────── */
+.cta {
+  margin-top: 1rem;
+}
+
+/* ─── AVATAR ────────────────────────────────── */
+.avatar {
+  border-radius: 50%;
+  border: 0.5px solid var(--avatar-border-color);
+  transition: filter 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .avatar {
+  filter: invert(1);
+}
+
+/* ─── PROJECT CARDS ─────────────────────────── */
+.project-card {
+  border: 1px solid var(--text-color);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.project-name { font-weight: bold; }
+
+.project-year {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.project-desc {
+  opacity: 0.8;
+  margin: 0;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.75rem;
+  border: 1px solid var(--text-color);
+  padding: 0.1rem 0.4rem;
+  opacity: 0.6;
+}
+
+.project-link {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.project-link:hover { text-decoration: underline; }
