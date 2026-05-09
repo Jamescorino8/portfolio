@@ -14,7 +14,6 @@ export default function Blogs() {
       </section>
 
       <p className="cta">wanna keep in touch?</p>
-      <Footer />
     </div>
   )
 }

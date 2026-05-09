@@ -1,6 +1,8 @@
-export default function Footer() {
+import { forwardRef } from 'react'
+
+const Footer = forwardRef(function Footer(props, ref) {
   return (
-    <footer className="mt-8 pt-6 flex gap-6" style={{ borderTop: '1px solid var(--border-color)' }}>
+    <footer ref={ref} className="mt-8 pt-6 flex gap-6" style={{ borderTop: '1px solid var(--border-color)' }}>
       <a href="https://github.com/jamescorino8" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
         style={{ color: 'var(--text-color)', opacity: 0.75 }}
         onMouseEnter={e => e.currentTarget.style.opacity = 1}
@@ -42,4 +44,6 @@ export default function Footer() {
       </a>
     </footer>
   )
-}
+})
+
+export default Footer

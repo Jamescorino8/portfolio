@@ -28,7 +28,6 @@ export default function Builds() {
       </section>
 
       <p className="cta">wanna keep in touch?</p>
-      <Footer />
     </div>
   )
 }
