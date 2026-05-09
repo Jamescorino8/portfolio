@@ -1,6 +1,13 @@
+import { useRef, useEffect } from 'react'
 import Footer from '../components/Footer'
 
 export default function Blogs() {
+  const footerRef = useRef(null)
+
+  useEffect(() => {
+    footerRef.current?.classList.add('revealed')
+  }, [])
+
   return (
     <div>
       <h1 className="text-5xl font-bold mb-8">????</h1>
@@ -14,6 +21,7 @@ export default function Blogs() {
       </section>
 
       <p className="cta">wanna keep in touch?</p>
+      <Footer ref={footerRef} />
     </div>
   )
 }

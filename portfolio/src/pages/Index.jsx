@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import TypeIt from 'typeit'
 import Footer from '../components/Footer'
 
-const SPEED = 75
+const TYPESPEED = 75
 
 export default function Index() {
   const h1Ref = useRef(null)
@@ -20,13 +20,14 @@ export default function Index() {
     const footer = footerRef.current
     const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
 
+    // 3. fade in each about line, then type the CTA, then reveal footer
     function staggerAndReveal() {
       aboutItems.forEach((item, i) => {
         setTimeout(() => item.classList.add('printed'), i * 100)
       })
       setTimeout(() => {
         new TypeIt(ctaRef.current, {
-          speed: SPEED,
+          speed: TYPESPEED,
           afterComplete: (instance) => {
             instance.destroy()
             footer?.classList.add('revealed')
@@ -37,14 +38,16 @@ export default function Index() {
       }, aboutItems.length * 100 + 300)
     }
 
+    // 1. type h1, then expand + type h2
     new TypeIt(h1Ref.current, {
-      speed: SPEED,
+      speed: TYPESPEED,
       afterComplete: (instance) => {
         instance.destroy()
-        h2.classList.add('expanded')
+        h2.classList.add('expanded') // slide h2 into view
         setTimeout(() => {
+          // 2. type h2, then simulate a text selection → underline
           new TypeIt(h2, {
-            speed: SPEED,
+            speed: TYPESPEED,
             afterComplete: (instance) => {
               instance.destroy()
               setTimeout(() => {
@@ -78,7 +81,7 @@ export default function Index() {
           <p className="stagger-item mb-1">20 yo.</p>
           <p className="stagger-item mb-1">i study computer science.</p>
           <p className="stagger-item mb-1">im most interested in software development.</p>
-          <p className="stagger-item mb-1">currently studying for midterms :(</p>
+          <p className="stagger-item mb-1">currently studying for finals :(</p>
         </div>
       </section>
 
