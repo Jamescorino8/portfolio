@@ -6,11 +6,11 @@ export default function Navbar() {
   const { isLight, toggle } = useTheme()
 
   return (
-    <nav className="flex items-center justify-between mb-12">
+    <nav className="flex items-center justify-between mb-6 sm:mb-12">
       <Link to="/">
-        <img src={avatar} alt="avatar" className="avatar w-[90px] h-[90px] object-cover" />
+        <img src={avatar} alt="avatar" className="avatar w-[70px] h-[70px] sm:w-[90px] sm:h-[90px] object-cover" />
       </Link>
-      <ul className="flex items-center gap-8 list-none">
+      <ul className="flex items-center gap-5 sm:gap-8 list-none">
         <li>
           <Link to="/" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
             onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}

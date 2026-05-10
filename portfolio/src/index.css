@@ -40,7 +40,7 @@ h1 {
 
 /* ─── H2 ────────────────────────────────────── */
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   position: relative;
@@ -66,6 +66,7 @@ h2.highlighted {
 h2.underlined {
   text-decoration: underline;
   text-underline-offset: 4px;
+  overflow: visible;
 }
 
 /* ─── STAGGER ───────────────────────────────── */

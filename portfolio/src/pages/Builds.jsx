@@ -87,7 +87,7 @@ export default function Builds() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
-  const h1Ratio = useFitText(h1Ref, 'what am i working on?', { reserve: 32, storageKey: 'h1Size' })
+  const h1Ratio = useFitText(h1Ref, 'what am i working on?', { reserve: 32 })
 
   useEffect(() => {
     if (hasRun.current) return
@@ -150,7 +150,7 @@ export default function Builds() {
 
   return (
     <div>
-      <h1 ref={h1Ref} className="text-5xl font-bold mb-8" style={{ whiteSpace: 'normal' }}></h1>
+      <h1 ref={h1Ref} className="text-5xl font-bold mb-8"></h1>
 
       <section ref={mainRef} className="builds-grid mb-8">
         <h2 ref={h2Ref} className="text-5xl font-bold mb-4"></h2>

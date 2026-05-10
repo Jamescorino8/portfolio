@@ -13,7 +13,7 @@ export default function Index() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
-  const h1Ratio = useFitText(h1Ref, 'you have found me!', { reserve: 32, storageKey: 'h1Size' })
+  const h1Ratio = useFitText(h1Ref, 'you have found me!', { reserve: 32 })
 
   useEffect(() => {
     if (hasRun.current) return
