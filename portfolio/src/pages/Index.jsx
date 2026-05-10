@@ -13,13 +13,15 @@ export default function Index() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
-  useFitText(h1Ref, 'you have found me!')
+  const h1Ratio = useFitText(h1Ref, 'you have found me!', { reserve: 32, storageKey: 'h1Size' })
 
   useEffect(() => {
     if (hasRun.current) return
     hasRun.current = true
 
     const h2 = h2Ref.current
+    const originalH2Size = parseFloat(window.getComputedStyle(h2).fontSize)
+    h2.style.fontSize = `${originalH2Size * h1Ratio.current}px`
     const footer = footerRef.current
     const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
 

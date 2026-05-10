@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import TypeIt from 'typeit'
 import ProjectCard from '../components/ProjectCard'
 import Footer from '../components/Footer'
+import { useFitText } from '../hooks/useFitText'
 
 const TYPESPEED = 50
 
@@ -86,10 +87,14 @@ export default function Builds() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
+  const h1Ratio = useFitText(h1Ref, 'what am i working on?', { reserve: 32, storageKey: 'h1Size' })
+
   useEffect(() => {
     if (hasRun.current) return
     hasRun.current = true
     const h2 = h2Ref.current
+    const originalH2Size = parseFloat(window.getComputedStyle(h2).fontSize)
+    h2.style.fontSize = `${originalH2Size * h1Ratio.current}px`
     const footer = footerRef.current
     const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
 
@@ -145,7 +150,7 @@ export default function Builds() {
 
   return (
     <div>
-      <h1 ref={h1Ref} className="text-5xl font-bold mb-8"></h1>
+      <h1 ref={h1Ref} className="text-5xl font-bold mb-8" style={{ whiteSpace: 'normal' }}></h1>
 
       <section ref={mainRef} className="builds-grid mb-8">
         <h2 ref={h2Ref} className="text-5xl font-bold mb-4"></h2>
