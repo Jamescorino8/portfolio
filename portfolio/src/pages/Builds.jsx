@@ -7,18 +7,18 @@ const TYPESPEED = 50
 
 const PROJECTS = [
   {
-    name: 'trip planner (wip)',
+    name: 'travel planner (wip)',
     year: '2026',
     desc: 'collaborative travel planner with map, calendar, and shared shortlist.',
     tags: ['react', 'vite', 'leaflet', 'fullcalendar', 'supabase'],
-    link: 'https://github.com/Jamescorino8/trip-planner',
+    link: 'https://github.com/Jamescorino8/travel-planner',
   },
   {
     name: 'portfolio',
     year: '2026',
     desc: "personal site. you're looking at it.",
     tags: ['react', 'tailwind', 'typeit', 'vite'],
-    link: 'https://github.com/Jamescorino8/portfolio',
+    link: 'https://github.com/Jamescorino8/portfolio/tree/main/portfolio',
   },
   {
     name: 'cpu simulator',

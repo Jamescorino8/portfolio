@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import TypeIt from 'typeit'
 import Footer from '../components/Footer'
+import { useFitText } from '../hooks/useFitText'
 
 const TYPESPEED = 50
 
@@ -11,6 +12,8 @@ export default function Index() {
   const ctaRef = useRef(null)
   const footerRef = useRef(null)
   const hasRun = useRef(false)
+
+  useFitText(h1Ref, 'you have found me!')
 
   useEffect(() => {
     if (hasRun.current) return
