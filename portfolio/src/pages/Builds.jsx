@@ -3,7 +3,7 @@ import TypeIt from 'typeit'
 import ProjectCard from '../components/ProjectCard'
 import Footer from '../components/Footer'
 
-const TYPESPEED = 75
+const TYPESPEED = 50
 
 const PROJECTS = [
   {
@@ -38,7 +38,7 @@ const PROJECTS = [
     name: 'battleship',
     year: '2025',
     desc: 'A command-line battleship game supporting both single-player (vs. CPU) and two-player (networked) modes.',
-    tags: ['c', 'posix', 'valgrind'],
+    tags: ['c', 'valgrind', 'docker', 'tcp'],
     link: 'https://github.com/Jamescorino8/ICSI333/tree/main/battleship',
   },
   {
@@ -59,13 +59,13 @@ const PROJECTS = [
     name: 'tic-tac-toe',
     year: '2025',
     desc: 'A web-based Tic-Tac-Toe game developed with JavaScript, CSS, and HTML, featuring a simple and interactive UI.',
-    tags: ['javascript', 'node.js', 'express.js', 'socket.io', 'html', 'css'],
+    tags: ['javascript', 'express.js', 'socket.io', 'html', 'css'],
     link: 'https://github.com/Jamescorino8/tic-tac-toe',
   },
   {
-  name: 'hero draft',
+  name: 'team draft',
   year: '2024',
-  desc: 'An application that simulates a draft system, allowing users to build two competing teams from a shared roster and output the final lineups. The project demonstrates object-oriented design with modular classes for heroes, teams, and the draft logic.',
+  desc: 'An application that simulates a draft system. The project demonstrates object-oriented design with modular classes for heroes, teams, and the draft logic.',
   tags: ['java'],
   link: 'https://github.com/Jamescorino8/ICSI201/tree/main/P3',
 },
@@ -147,7 +147,7 @@ export default function Builds() {
     <div>
       <h1 ref={h1Ref} className="text-5xl font-bold mb-8"></h1>
 
-      <section ref={mainRef} className="mb-8">
+      <section ref={mainRef} className="builds-grid mb-8">
         <h2 ref={h2Ref} className="text-5xl font-bold mb-4"></h2>
         {PROJECTS.map(p => (
           <div key={p.name} className="stagger-item">

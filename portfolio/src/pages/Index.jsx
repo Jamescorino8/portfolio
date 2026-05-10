@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import TypeIt from 'typeit'
 import Footer from '../components/Footer'
 
-const TYPESPEED = 75
+const TYPESPEED = 50
 
 export default function Index() {
   const h1Ref = useRef(null)

@@ -72,11 +72,14 @@ h2.underlined {
 .stagger-item {
   opacity: 0;
   pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .stagger-item.printed {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* ─── CTA ───────────────────────────────────── */
@@ -178,3 +181,10 @@ body.light-mode .avatar {
 }
 
 .project-link:hover { text-decoration: underline; }
+
+/* ─── MOBILE FIX ─────────────────────────── */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  body { padding: 1rem; }
+}
