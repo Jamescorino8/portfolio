@@ -153,7 +153,7 @@ export default function Builds() {
       <h1 ref={h1Ref} className="text-5xl font-bold mb-8"></h1>
 
       <section ref={mainRef} className="builds-grid mb-8">
-        <h2 ref={h2Ref} className="text-5xl font-bold mb-4"></h2>
+        <h2 ref={h2Ref} className="font-bold mb-4"></h2>
         {PROJECTS.map(p => (
           <div key={p.name} className="stagger-item">
             <ProjectCard {...p} />
