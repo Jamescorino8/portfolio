@@ -86,7 +86,7 @@ export default function Index() {
           <p className="stagger-item mb-1">20 yo.</p>
           <p className="stagger-item mb-1">i study computer science.</p>
           <p className="stagger-item mb-1">im most interested in software development.</p>
-          <p className="stagger-item mb-1">currently studying for finals :(</p>
+          {/* <p className="stagger-item mb-1">currently </p> */}
         </div>
       </section>
 
