@@ -28,8 +28,15 @@ export default function Index() {
     // 3. fade in each about line, then type the CTA, then reveal footer
     function staggerAndReveal() {
       aboutItems.forEach((item, i) => {
-        setTimeout(() => item.classList.add('printed'), i * 100)
+        setTimeout(() => {
+          if (i > 0) aboutItems[i - 1].classList.remove('typing')
+          item.classList.add('printed', 'typing')
+        }, i * 100)
       })
+      setTimeout(
+        () => aboutItems[aboutItems.length - 1]?.classList.remove('typing'),
+        (aboutItems.length - 1) * 100 + 400
+      )
       setTimeout(() => {
         new TypeIt(ctaRef.current, {
           speed: TYPESPEED,
