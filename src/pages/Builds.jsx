@@ -64,12 +64,12 @@ const PROJECTS = [
     link: 'https://github.com/Jamescorino8/tic-tac-toe',
   },
   {
-  name: 'team draft',
-  year: '2024',
-  desc: 'An application that simulates a draft system. The project demonstrates object-oriented design with modular classes for heroes, teams, and the draft logic.',
-  tags: ['java'],
-  link: 'https://github.com/Jamescorino8/ICSI201/tree/main/P3',
-},
+    name: 'team draft',
+    year: '2024',
+    desc: 'An application that simulates a draft system. The project demonstrates object-oriented design with modular classes for heroes, teams, and the draft logic.',
+    tags: ['java'],
+    link: 'https://github.com/Jamescorino8/ICSI201/tree/main/P3',
+  },
   {
     name: 'flask site',
     year: '2024',
@@ -98,7 +98,6 @@ export default function Builds() {
     const footer = footerRef.current
     const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
 
-    // 3 fade in each about line, then type the CTA, then reveal footer
     function staggerAndReveal() {
       aboutItems.forEach((item, i) => {
         setTimeout(() => item.classList.add('printed'), i * 100)
@@ -116,14 +115,12 @@ export default function Builds() {
       }, aboutItems.length * 100 + 300)
     }
 
-    // 1. type h1, then expand + type h2
     new TypeIt(h1Ref.current, {
       speed: TYPESPEED,
       afterComplete: (instance) => {
         instance.destroy()
-        h2.classList.add('expanded') // slide h2 into view
+        h2.classList.add('expanded')
         setTimeout(() => {
-          // 2. type h2, then simulate a text selection → underline
           new TypeIt(h2, {
             speed: TYPESPEED,
             afterComplete: (instance) => {

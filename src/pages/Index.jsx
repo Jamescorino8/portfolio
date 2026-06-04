@@ -27,6 +27,7 @@ export default function Index() {
 
     // 3. fade in each about line, then type the CTA, then reveal footer
     function staggerAndReveal() {
+      mainRef.current?.classList.add('revealed')
       aboutItems.forEach((item, i) => {
         setTimeout(() => {
           if (i > 0) aboutItems[i - 1].classList.remove('typing')
@@ -88,10 +89,10 @@ export default function Index() {
 
       <section className="mb-8">
         <h2 ref={h2Ref}></h2>
-        <div ref={mainRef}>
+        <div ref={mainRef} className="about-items">
           <p className="stagger-item mb-1">hi, im james.</p>
           <p className="stagger-item mb-1">20 yo.</p>
-          <p className="stagger-item mb-1">studies cs @ ualbany</p>
+          <p className="stagger-item mb-1">studies cs @ ualbany.</p>
           <p className="stagger-item mb-1">incoming research intern @ skku.</p>
         </div>
       </section>

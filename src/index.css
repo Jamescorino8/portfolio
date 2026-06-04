@@ -104,7 +104,7 @@ h2.underlined {
 
 /* ─── FOOTER ────────────────────────────────── */
 footer {
-  margin-top: 2rem;
+  margin-top: 0.75rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
   display: flex;
@@ -143,6 +143,61 @@ footer a:hover {
 
 body.light-mode .avatar {
   filter: invert(1);
+}
+
+/* ─── ABOUT ITEMS ───────────────────────────── */
+.about-items {
+  border-left: 1px solid transparent;
+  padding-left: 1.25rem;
+  transition: border-color 0.35s ease;
+}
+
+.about-items.revealed {
+  border-color: var(--border-color);
+}
+
+/* ─── NOTES LIST ────────────────────────────── */
+.notes-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.note-row:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+.note-row:hover .note-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.note-date {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.note-title {
+  flex: 1;
+}
+
+.note-tag {
+  font-size: 0.75rem;
+  opacity: 0.45;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
 }
 
 /* ─── PROJECT CARDS ─────────────────────────── */

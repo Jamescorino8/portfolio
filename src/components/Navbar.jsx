@@ -26,10 +26,10 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/blogs" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
+          <Link to="/notes" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
             onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
             onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
-            blogs
+            notes
           </Link>
         </li>
         <li>
