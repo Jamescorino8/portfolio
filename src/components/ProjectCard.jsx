@@ -1,6 +1,6 @@
 export default function ProjectCard({ name, year, desc, tags = [], link }) {
   return (
-    <div className="project-card stagger-item">
+    <div className="project-card">
       <div className="project-header">
         <span className="project-name">{name}</span>
         <span className="project-year">{year}</span>

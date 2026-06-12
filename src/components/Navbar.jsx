@@ -6,43 +6,21 @@ export default function Navbar() {
   const { isLight, toggle } = useTheme()
 
   return (
-    <nav className="flex items-center justify-between mb-6 sm:mb-12">
+    <nav>
       <Link to="/">
-        <img src={avatar} alt="avatar" className="avatar w-[70px] h-[70px] sm:w-[90px] sm:h-[90px] object-cover" />
+        <img src={avatar} alt="avatar" className="avatar" />
       </Link>
-      <ul className="flex items-center gap-5 sm:gap-8 list-none">
+      <ul className="nav-links">
+        <li><Link to="/" className="nav-link">about</Link></li>
+        <li><Link to="/builds" className="nav-link">builds</Link></li>
+        <li><Link to="/notes" className="nav-link">notes</Link></li>
         <li>
-          <Link to="/" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
-            onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-            onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
-            about
-          </Link>
-        </li>
-        <li>
-          <Link to="/builds" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
-            onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-            onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
-            builds
-          </Link>
-        </li>
-        <li>
-          <Link to="/notes" style={{ color: 'var(--text-color)', textDecoration: 'none', fontSize: '0.95rem', letterSpacing: '0.05em' }}
-            onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-            onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
-            notes
-          </Link>
-        </li>
-        <li>
-          <button onClick={toggle} style={{
-            background: 'none', border: 'none',
-            color: 'var(--theme-toggle-color)',
-            fontSize: isLight ? '1.6rem' : '1.8rem',
-            lineHeight: 1, padding: 0,
-            width: 32, height: 32,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer',
-            transition: 'color 0.3s ease, font-size 0.3s ease'
-          }}>
+          <button
+            onClick={toggle}
+            className="theme-toggle"
+            style={{ fontSize: isLight ? '1.6rem' : '1.8rem' }}
+            aria-label="Toggle theme"
+          >
             {isLight ? '☼' : '⏾'}
           </button>
         </li>

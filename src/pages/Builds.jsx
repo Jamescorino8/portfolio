@@ -15,7 +15,7 @@ const PROJECTS = [
     name: 'portfolio',
     year: '2026',
     desc: "personal site. you're looking at it.",
-    tags: ['react', 'tailwind', 'typeit', 'vite'],
+    tags: ['react', 'typeit', 'vite'],
     link: 'https://github.com/Jamescorino8/portfolio/tree/main/portfolio',
   },
   {
@@ -82,7 +82,6 @@ export default function Builds() {
   const mainRef = useRef(null)
   const ctaRef = useRef(null)
   const footerRef = useRef(null)
-  const hasRun = useRef(false)
 
   usePageAnimation({
     h1Ref,
@@ -92,15 +91,14 @@ export default function Builds() {
     ctaRef,
     footerRef,
     itemsRef: mainRef,
-    onStagger: () => mainRef.current?.classList.add('revealed'),
   })
 
   return (
     <div>
-      <h1 ref={h1Ref} className="text-5xl font-bold mb-8"></h1>
+      <h1 ref={h1Ref}></h1>
 
-      <section ref={mainRef} className="builds-grid mb-8">
-        <h2 ref={h2Ref} className="font-bold mb-4"></h2>
+      <section ref={mainRef} className="page-section">
+        <h2 ref={h2Ref}></h2>
         {PROJECTS.map(p => (
           <div key={p.name} className="stagger-item">
             <ProjectCard {...p} />

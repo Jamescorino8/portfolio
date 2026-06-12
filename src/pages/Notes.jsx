@@ -12,7 +12,6 @@ export default function Notes() {
   const listRef = useRef(null)
   const ctaRef = useRef(null)
   const footerRef = useRef(null)
-  const hasRun = useRef(false)
 
   usePageAnimation({
     h1Ref,
@@ -21,15 +20,14 @@ export default function Notes() {
     h2Text: 'notes',
     ctaRef,
     footerRef,
-    itemsRef: mainRef,
-    onStagger: () => mainRef.current?.classList.add('revealed'),
+    itemsRef: listRef,
   })
 
   return (
     <div>
       <h1 ref={h1Ref}></h1>
 
-      <section className="mb-8">
+      <section className="page-section">
         <h2 ref={h2Ref}></h2>
         <div ref={listRef} className="notes-list">
           {NOTES.length === 0 ? (

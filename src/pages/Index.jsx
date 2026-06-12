@@ -24,13 +24,13 @@ export default function Index() {
     <div>
       <h1 ref={h1Ref}></h1>
 
-      <section className="mb-8">
+      <section className="page-section">
         <h2 ref={h2Ref}></h2>
         <div ref={mainRef} className="about-items">
-          <p className="stagger-item mb-1">hi, im james.</p>
-          <p className="stagger-item mb-1">20 yo.</p>
-          <p className="stagger-item mb-1">studies cs @ ualbany.</p>
-          <p className="stagger-item mb-1">incoming research intern @ skku.</p>
+          <p className="stagger-item about-item">hi, im james.</p>
+          <p className="stagger-item about-item">20 yo.</p>
+          <p className="stagger-item about-item">studies cs @ ualbany.</p>
+          <p className="stagger-item about-item">incoming research intern @ skku.</p>
         </div>
       </section>
 

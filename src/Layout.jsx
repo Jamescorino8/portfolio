@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 
 export default function Layout() {
   return (
-    <div className="max-w-[860px] mx-auto px-8 py-8">
+    <div className="page-wrapper">
       <Navbar />
       <main>
         <Outlet />

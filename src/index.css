@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 /* ─── CSS VARIABLES ─────────────────────────── */
 :root {
   --bg-color: #000;
@@ -23,6 +21,13 @@ body {
   color: var(--text-color);
   font-family: 'Space Mono', monospace;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── LAYOUT ────────────────────────────────── */
+.page-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 /* ─── H1 ────────────────────────────────────── */
@@ -102,6 +107,66 @@ h2.underlined {
   margin-top: 1rem;
 }
 
+/* ─── NAVBAR ────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─── THEME TOGGLE ───────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--theme-toggle-color);
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+/* ─── AVATAR ────────────────────────────────── */
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 0.5px solid var(--avatar-border-color);
+  object-fit: cover;
+  transition: filter 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .avatar {
+  filter: invert(1);
+}
+
 /* ─── FOOTER ────────────────────────────────── */
 footer {
   margin-top: 0.75rem;
@@ -119,30 +184,14 @@ footer.revealed {
   pointer-events: auto;
 }
 
-footer a {
+.footer-link {
   color: var(--text-color);
   opacity: 0.75;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-footer a:hover {
+.footer-link:hover {
   opacity: 1;
-}
-
-/* ─── MOBILE ────────────────────────────────── */
-@media (max-width: 600px) {
-  h1 { font-size: 2rem; }
-}
-
-/* ─── AVATAR ────────────────────────────────── */
-.avatar {
-  border-radius: 50%;
-  border: 0.5px solid var(--avatar-border-color);
-  transition: filter 0.3s ease, border-color 0.3s ease;
-}
-
-body.light-mode .avatar {
-  filter: invert(1);
 }
 
 /* ─── ABOUT ITEMS ───────────────────────────── */
@@ -154,6 +203,10 @@ body.light-mode .avatar {
 
 .about-items.revealed {
   border-color: var(--border-color);
+}
+
+.about-item {
+  margin-bottom: 0.25rem;
 }
 
 /* ─── NOTES LIST ────────────────────────────── */
@@ -198,6 +251,11 @@ body.light-mode .avatar {
   opacity: 0.45;
   flex-shrink: 0;
   letter-spacing: 0.05em;
+}
+
+/* ─── SECTIONS ──────────────────────────────── */
+.page-section {
+  margin-bottom: 2rem;
 }
 
 /* ─── PROJECT CARDS ─────────────────────────── */
@@ -250,9 +308,16 @@ body.light-mode .avatar {
 
 .project-link:hover { text-decoration: underline; }
 
-/* ─── MOBILE FIX ─────────────────────────── */
-@media (max-width: 400px) {
+/* ─── MOBILE ────────────────────────────────── */
+@media (max-width: 600px) {
   h1 { font-size: 2rem; }
+  .avatar { width: 70px; height: 70px; }
+  nav { margin-bottom: 1.5rem; }
+  .nav-links { gap: 1.25rem; }
+  .page-wrapper { padding: 1rem; }
+  nav { flex-direction: row; }
+}
+
+@media (max-width: 400px) {
   nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  body { padding: 1rem; }
 }
