@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
-export function useTheme() {
-  const getInitialTheme = () => {
-    const stored = localStorage.getItem('theme')
-    if (stored) return stored === 'light'
-    return window.matchMedia('(prefers-color-scheme: light)').matches
-  }
+function getInitialTheme() {
+  const stored = localStorage.getItem('theme')
+  if (stored) return stored === 'light'
+  return window.matchMedia('(prefers-color-scheme: light)').matches
+}
 
+export function useTheme() {
   const [isLight, setIsLight] = useState(getInitialTheme)
 
   useEffect(() => {

@@ -15,7 +15,7 @@ const PROJECTS = [
     name: 'portfolio',
     year: '2026',
     desc: "personal site. you're looking at it.",
-    tags: ['react', 'typeit', 'vite'],
+    tags: ['react', 'css', 'typeit', 'vite'],
     link: 'https://github.com/Jamescorino8/portfolio/tree/main/portfolio',
   },
   {
