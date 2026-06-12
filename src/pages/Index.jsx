@@ -1,9 +1,6 @@
-import { useEffect, useRef } from 'react'
-import TypeIt from 'typeit'
+import { useRef } from 'react'
 import Footer from '../components/Footer'
-import { useFitText } from '../hooks/useFitText'
-
-const TYPESPEED = 50
+import { usePageAnimation } from '../hooks/usePageAnimation'
 
 export default function Index() {
   const h1Ref = useRef(null)
@@ -11,77 +8,17 @@ export default function Index() {
   const mainRef = useRef(null)
   const ctaRef = useRef(null)
   const footerRef = useRef(null)
-  const hasRun = useRef(false)
 
-  const h1Ratio = useFitText(h1Ref, 'you have found me!', { reserve: 32 })
-
-  useEffect(() => {
-    if (hasRun.current) return
-    hasRun.current = true
-
-    const h2 = h2Ref.current
-    const originalH2Size = parseFloat(window.getComputedStyle(h2).fontSize)
-    h2.style.fontSize = `${originalH2Size * h1Ratio.current}px`
-    const footer = footerRef.current
-    const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
-
-    // 3. fade in each about line, then type the CTA, then reveal footer
-    function staggerAndReveal() {
-      mainRef.current?.classList.add('revealed')
-      aboutItems.forEach((item, i) => {
-        setTimeout(() => {
-          if (i > 0) aboutItems[i - 1].classList.remove('typing')
-          item.classList.add('printed', 'typing')
-        }, i * 100)
-      })
-      setTimeout(
-        () => aboutItems[aboutItems.length - 1]?.classList.remove('typing'),
-        (aboutItems.length - 1) * 100 + 400
-      )
-      setTimeout(() => {
-        new TypeIt(ctaRef.current, {
-          speed: TYPESPEED,
-          afterComplete: (instance) => {
-            instance.destroy()
-            footer?.classList.add('revealed')
-          }
-        })
-          .type('wanna keep in touch?')
-          .go()
-      }, aboutItems.length * 100 + 300)
-    }
-
-    // 1. type h1, then expand + type h2
-    new TypeIt(h1Ref.current, {
-      speed: TYPESPEED,
-      afterComplete: (instance) => {
-        instance.destroy()
-        h2.classList.add('expanded') // slide h2 into view
-        setTimeout(() => {
-          // 2. type h2, then simulate a text selection → underline
-          new TypeIt(h2, {
-            speed: TYPESPEED,
-            afterComplete: (instance) => {
-              instance.destroy()
-              setTimeout(() => {
-                h2.classList.add('highlighted')
-                setTimeout(() => {
-                  h2.classList.remove('highlighted')
-                  h2.classList.add('underlined')
-                  setTimeout(staggerAndReveal, 200)
-                }, 350)
-              }, 400)
-            }
-          })
-            .type('about me')
-            .go()
-        }, 350)
-      }
-    })
-      .pause(300)
-      .type('you have found me!')
-      .go()
-  }, [])
+  usePageAnimation({
+    h1Ref,
+    h2Ref,
+    h1Text: 'you have found me!',
+    h2Text: 'about me',
+    ctaRef,
+    footerRef,
+    itemsRef: mainRef,
+    onStagger: () => mainRef.current?.classList.add('revealed'),
+  })
 
   return (
     <div>

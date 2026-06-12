@@ -1,10 +1,7 @@
-import { useEffect, useRef } from 'react'
-import TypeIt from 'typeit'
+import { useRef } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import Footer from '../components/Footer'
-import { useFitText } from '../hooks/useFitText'
-
-const TYPESPEED = 50
+import { usePageAnimation } from '../hooks/usePageAnimation'
 
 const PROJECTS = [
   {
@@ -87,63 +84,16 @@ export default function Builds() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
-  const h1Ratio = useFitText(h1Ref, 'what am i working on?', { reserve: 32 })
-
-  useEffect(() => {
-    if (hasRun.current) return
-    hasRun.current = true
-    const h2 = h2Ref.current
-    const originalH2Size = parseFloat(window.getComputedStyle(h2).fontSize)
-    h2.style.fontSize = `${originalH2Size * h1Ratio.current}px`
-    const footer = footerRef.current
-    const aboutItems = mainRef.current?.querySelectorAll('.stagger-item') ?? []
-
-    function staggerAndReveal() {
-      aboutItems.forEach((item, i) => {
-        setTimeout(() => item.classList.add('printed'), i * 100)
-      })
-      setTimeout(() => {
-        new TypeIt(ctaRef.current, {
-          speed: TYPESPEED,
-          afterComplete: (instance) => {
-            instance.destroy()
-            footer?.classList.add('revealed')
-          }
-        })
-          .type('wanna keep in touch?')
-          .go()
-      }, aboutItems.length * 100 + 300)
-    }
-
-    new TypeIt(h1Ref.current, {
-      speed: TYPESPEED,
-      afterComplete: (instance) => {
-        instance.destroy()
-        h2.classList.add('expanded')
-        setTimeout(() => {
-          new TypeIt(h2, {
-            speed: TYPESPEED,
-            afterComplete: (instance) => {
-              instance.destroy()
-              setTimeout(() => {
-                h2.classList.add('highlighted')
-                setTimeout(() => {
-                  h2.classList.remove('highlighted')
-                  h2.classList.add('underlined')
-                  setTimeout(staggerAndReveal, 200)
-                }, 350)
-              }, 400)
-            }
-          })
-            .type('builds')
-            .go()
-        }, 350)
-      }
-    })
-      .pause(300)
-      .type('what am i working on?')
-      .go()
-  }, [])
+  usePageAnimation({
+    h1Ref,
+    h2Ref,
+    h1Text: 'what am i working on?',
+    h2Text: 'builds',
+    ctaRef,
+    footerRef,
+    itemsRef: mainRef,
+    onStagger: () => mainRef.current?.classList.add('revealed'),
+  })
 
   return (
     <div>

@@ -1,9 +1,6 @@
-import { useEffect, useRef } from 'react'
-import TypeIt from 'typeit'
+import { useRef } from 'react'
 import Footer from '../components/Footer'
-import { useFitText } from '../hooks/useFitText'
-
-const TYPESPEED = 50
+import { usePageAnimation } from '../hooks/usePageAnimation'
 
 const NOTES = [
   { date: '202X-XX-XX', title: 'coming soon :P', tag: 'tag', link: '#' },
@@ -17,64 +14,16 @@ export default function Notes() {
   const footerRef = useRef(null)
   const hasRun = useRef(false)
 
-  const h1Ratio = useFitText(h1Ref, 'what am i thinking about?', { reserve: 32 })
-
-  useEffect(() => {
-    if (hasRun.current) return
-    hasRun.current = true
-
-    const h2 = h2Ref.current
-    const originalH2Size = parseFloat(window.getComputedStyle(h2).fontSize)
-    h2.style.fontSize = `${originalH2Size * h1Ratio.current}px`
-    const footer = footerRef.current
-    const items = listRef.current?.querySelectorAll('.stagger-item') ?? []
-
-    function staggerAndReveal() {
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('printed'), i * 80)
-      })
-      setTimeout(() => {
-        new TypeIt(ctaRef.current, {
-          speed: TYPESPEED,
-          afterComplete: (instance) => {
-            instance.destroy()
-            footer?.classList.add('revealed')
-          }
-        })
-          .type('wanna keep in touch?')
-          .go()
-      }, items.length * 80 + 300)
-    }
-
-    new TypeIt(h1Ref.current, {
-      speed: TYPESPEED,
-      afterComplete: (instance) => {
-        instance.destroy()
-        h2.classList.add('expanded')
-        setTimeout(() => {
-          new TypeIt(h2, {
-            speed: TYPESPEED,
-            afterComplete: (instance) => {
-              instance.destroy()
-              setTimeout(() => {
-                h2.classList.add('highlighted')
-                setTimeout(() => {
-                  h2.classList.remove('highlighted')
-                  h2.classList.add('underlined')
-                  setTimeout(staggerAndReveal, 200)
-                }, 350)
-              }, 400)
-            }
-          })
-            .type('notes')
-            .go()
-        }, 350)
-      }
-    })
-      .pause(300)
-      .type('what am i thinking about?')
-      .go()
-  }, [])
+  usePageAnimation({
+    h1Ref,
+    h2Ref,
+    h1Text: 'what am i thinking about?',
+    h2Text: 'notes',
+    ctaRef,
+    footerRef,
+    itemsRef: mainRef,
+    onStagger: () => mainRef.current?.classList.add('revealed'),
+  })
 
   return (
     <div>
