@@ -1,10 +1,7 @@
 import { useRef } from 'react'
 import Footer from '../components/Footer'
 import { usePageAnimation } from '../hooks/usePageAnimation'
-
-const NOTES = [
-  { date: '202X-XX-XX', title: 'coming soon :P', tag: 'tag', link: '#' },
-]
+import { NOTES } from '../data/NotesList.js'
 
 export default function Notes() {
   const h1Ref = useRef(null)
