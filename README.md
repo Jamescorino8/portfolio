@@ -4,10 +4,10 @@ Personal portfolio site. Live at [jamescorino.dev](https://jamescorino.dev). Bui
 
 ## Stack
 
-- **React 19** + **React Router 7**
-- **Tailwind CSS v4**
-- **TypeIt** — typewriter effect on page load
-- **Vite 8**
+- **React 19.2.5** + **React Router 7.15.0**
+- **TypeIt 8.8.7** — typewriter effect on page load
+- **Vite 8.0.10**
+- **Vercel Analytics 2.0.1**
 
 ## Pages
 
@@ -15,7 +15,7 @@ Personal portfolio site. Live at [jamescorino.dev](https://jamescorino.dev). Bui
 |-------|-------------|
 | `/` | About — animated intro with typewriter effect |
 | `/builds` | Project cards |
-| `/blogs` | Blog posts |
+| `/notes` | Notes |
 
 ## Getting started
 
