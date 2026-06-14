@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 function getInitialTheme() {
+  // Guard against non-browser environments (SSR, unit tests, Storybook).
+  if (typeof window === 'undefined') return false
   const stored = localStorage.getItem('theme')
   if (stored) return stored === 'light'
   return window.matchMedia('(prefers-color-scheme: light)').matches

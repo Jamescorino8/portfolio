@@ -48,6 +48,13 @@ h1 {
   width: fit-content;
 }
 
+/* Unified typing cursor — added/removed by typeAsync() on every TypeIt target */
+.typing::after {
+  content: '|';
+  margin-left: 0.05em;
+  animation: ti-cursor-blink 0.7s step-end infinite;
+}
+
 /* ─── H2 ────────────────────────────────────── */
 h2 {
   font-size: 2rem;
@@ -93,13 +100,6 @@ h2.underlined {
   pointer-events: auto;
   transform: translateY(0);
 }
-
-.stagger-item.typing::after {
-  content: '|';
-  margin-left: 1px;
-  animation: ti-cursor-blink 0.7s step-end infinite;
-}
-
 @keyframes ti-cursor-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }

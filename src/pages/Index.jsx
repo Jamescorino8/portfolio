@@ -34,7 +34,7 @@ export default function Index() {
         </div>
       </section>
 
-      <p ref={ctaRef} className="cta"></p>
+      <div ref={ctaRef} className="cta"></div>
 
       <Footer ref={footerRef} />
     </div>
