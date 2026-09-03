@@ -30,7 +30,7 @@ export default function Index() {
           <p className="stagger-item about-item">hi, im james.</p>
           <p className="stagger-item about-item">20 yo.</p>
           <p className="stagger-item about-item">studies cs @ ualbany.</p>
-          <p className="stagger-item about-item">incoming research intern @ skku.</p>
+          <p className="stagger-item about-item">ai research intern @ skku.</p>
         </div>
       </section>
 
