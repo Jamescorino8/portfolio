@@ -22,7 +22,8 @@ function type(el, text, pause = 0) {
  *   → stagger .stagger-item → type .cta → reveal footer
  *
  * The scope element gets `--fit-chars` (drives the h1/h2 CSS font size) and
- * the `revealed` class once the items start coming in.
+ * the `revealed` class once the items start coming in. Under
+ * prefers-reduced-motion the sequence jumps straight to its end state.
  */
 export function usePageAnimation({ h1Text, h2Text }) {
   const scope = useRef(null)
@@ -35,7 +36,7 @@ export function usePageAnimation({ h1Text, h2Text }) {
 
     gsap.set(page, { '--fit-chars': h1Text.length + 1 }) // +1 leaves room for the cursor
 
-    gsap.timeline()
+    const tl = gsap.timeline()
       .add(type(h1, h1Text, 0.3))
       .to(h2, { opacity: 1, duration: 0.35 })
       .add(type(h2, h2Text))
@@ -45,6 +46,9 @@ export function usePageAnimation({ h1Text, h2Text }) {
       .to('.stagger-item', { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.35, stagger: 0.1 })
       .add(type(cta, CTA_TEXT), '+=0.1')
       .to('footer', { opacity: 1, pointerEvents: 'auto', duration: 0.5 })
+
+    // Reduced motion: skip straight to the end state (callbacks still fire).
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) tl.progress(1)
   }, { scope })
 
   return scope
