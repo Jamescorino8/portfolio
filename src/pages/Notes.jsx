@@ -1,34 +1,22 @@
-import { useRef } from 'react'
 import Footer from '../components/Footer'
 import { usePageAnimation } from '../hooks/usePageAnimation'
 import { NOTES } from '../data/NotesList.js'
 
 export default function Notes() {
-  const h1Ref = useRef(null)
-  const h2Ref = useRef(null)
-  const listRef = useRef(null)
-  const ctaRef = useRef(null)
-  const footerRef = useRef(null)
-
-  usePageAnimation({
-    h1Ref,
-    h2Ref,
+  const scope = usePageAnimation({
     h1Text: 'what am i thinking about?',
     h2Text: 'notes',
-    ctaRef,
-    footerRef,
-    itemsRef: listRef,
   })
 
   return (
-    <div>
-      <h1 ref={h1Ref}></h1>
+    <div ref={scope} className="page">
+      <h1></h1>
 
       <section className="page-section">
-        <h2 ref={h2Ref}></h2>
-        <div ref={listRef} className="notes-list">
+        <h2></h2>
+        <div className="notes-list">
           {NOTES.length === 0 ? (
-            <p className="stagger-item" style={{ opacity: 0 }}>nothing yet — check back soon.</p>
+            <p className="stagger-item">nothing yet — check back soon.</p>
           ) : (
             NOTES.map(({ date, title, tag, link }) => (
               <a
@@ -45,8 +33,8 @@ export default function Notes() {
         </div>
       </section>
 
-      <div ref={ctaRef} className="cta"></div>
-      <Footer ref={footerRef} />
+      <div className="cta"></div>
+      <Footer />
     </div>
   )
 }
