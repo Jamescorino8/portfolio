@@ -10,10 +10,10 @@ export default function Notes() {
 
   return (
     <div ref={scope} className="page">
-      <h1></h1>
+      <h1 aria-label="what am i thinking about?"></h1>
 
       <section className="page-section">
-        <h2></h2>
+        <h2 aria-label="notes"></h2>
         <div className="notes-list">
           {NOTES.length === 0 ? (
             <p className="stagger-item">nothing yet — check back soon.</p>

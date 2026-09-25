@@ -9,10 +9,10 @@ export default function Index() {
 
   return (
     <div ref={scope} className="page">
-      <h1></h1>
+      <h1 aria-label="you have found me!"></h1>
 
       <section className="page-section">
-        <h2></h2>
+        <h2 aria-label="about me"></h2>
         <div className="about-items">
           <p className="stagger-item about-item">hi, im james.</p>
           <p className="stagger-item about-item">21 yo.</p>

@@ -11,10 +11,10 @@ export default function Builds() {
 
   return (
     <div ref={scope} className="page">
-      <h1></h1>
+      <h1 aria-label="what am i working on?"></h1>
 
       <section className="page-section">
-        <h2></h2>
+        <h2 aria-label="builds"></h2>
         {PROJECTS.map(p => (
           <div key={p.name} className="stagger-item">
             <ProjectCard {...p} />
