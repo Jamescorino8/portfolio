@@ -29,8 +29,9 @@ export default function Index() {
         <div ref={mainRef} className="about-items">
           <p className="stagger-item about-item">hi, im james.</p>
           <p className="stagger-item about-item">20 yo.</p>
-          <p className="stagger-item about-item">studies cs @ ualbany.</p>
-          <p className="stagger-item about-item">ai research intern @ skku.</p>
+          <p className="stagger-item about-item">b.s./m.s. cs @ ualbany.</p>
+          <p className="stagger-item about-item">prev. research intern @ skku infolab.</p>
+          <p className="stagger-item about-item">into ml, vision, and systems.</p>
         </div>
       </section>
 
