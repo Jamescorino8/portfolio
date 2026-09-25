@@ -3,13 +3,13 @@ import { usePageAnimation } from '../hooks/usePageAnimation'
 
 export default function Index() {
   const scope = usePageAnimation({
-    h1Text: 'you have found me!',
+    h1Text: 'who am i?',
     h2Text: 'about me',
   })
 
   return (
     <div ref={scope} className="page">
-      <h1 aria-label="you have found me!"></h1>
+      <h1 aria-label="who am i?"></h1>
 
       <section className="page-section">
         <h2 aria-label="about me"></h2>
