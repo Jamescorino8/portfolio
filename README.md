@@ -5,7 +5,7 @@ Personal portfolio site. Live at [jamescorino.dev](https://jamescorino.dev). Bui
 ## Stack
 
 - **React 19.2.5** + **React Router 7.15.0**
-- **TypeIt 8.8.7** — typewriter effect on page load
+- **GSAP 3.15** (TextPlugin + `@gsap/react`) — typewriter page-entry animation
 - **Vite 8.0.10**
 - **Vercel Analytics 2.0.1**
 

@@ -37,6 +37,8 @@ build
 *.njsproj
 *.sln
 *.sw?
+.claude/
+.github/
 
 # OS
 Thumbs.db

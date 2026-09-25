@@ -1,42 +1,31 @@
-import { useRef } from 'react'
 import Footer from '../components/Footer'
 import { usePageAnimation } from '../hooks/usePageAnimation'
 
 export default function Index() {
-  const h1Ref = useRef(null)
-  const h2Ref = useRef(null)
-  const mainRef = useRef(null)
-  const ctaRef = useRef(null)
-  const footerRef = useRef(null)
-
-  usePageAnimation({
-    h1Ref,
-    h2Ref,
-    h1Text: 'you have found me!',
+  const scope = usePageAnimation({
+    h1Text: 'who am i?',
     h2Text: 'about me',
-    ctaRef,
-    footerRef,
-    itemsRef: mainRef,
-    onStagger: () => mainRef.current?.classList.add('revealed'),
   })
 
   return (
-    <div>
-      <h1 ref={h1Ref}></h1>
+    <div ref={scope} className="page">
+      <h1 aria-label="who am i?"></h1>
 
       <section className="page-section">
-        <h2 ref={h2Ref}></h2>
-        <div ref={mainRef} className="about-items">
+        <h2 aria-label="about me"></h2>
+        <div className="about-items">
           <p className="stagger-item about-item">hi, im james.</p>
-          <p className="stagger-item about-item">20 yo.</p>
-          <p className="stagger-item about-item">studies cs @ ualbany.</p>
-          <p className="stagger-item about-item">ai research intern @ skku.</p>
+          <p className="stagger-item about-item">21 yo.</p>
+          <p className="stagger-item about-item">bs/ms cs @ ualbany.</p>
+          <p className="stagger-item about-item">spent summer '26 at skku in korea.</p>
+          <p className="stagger-item about-item">did research on deepfake detection @ skku infolab.</p>
+          <p className="stagger-item about-item">looking for summer '27 internships.</p>
         </div>
       </section>
 
-      <div ref={ctaRef} className="cta"></div>
+      <div className="cta"></div>
 
-      <Footer ref={footerRef} />
+      <Footer />
     </div>
   )
 }
