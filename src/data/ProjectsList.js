@@ -1,12 +1,5 @@
 export const PROJECTS = [
   {
-    name: 'portfolio',
-    year: '2026',
-    desc: "personal site. you're looking at it.",
-    tags: ['react', 'css', 'gsap', 'vite'],
-    link: 'https://github.com/Jamescorino8/portfolio/tree/main/portfolio',
-  },
-  {
     name: 'seoul transit & weather analysis',
     year: '2026',
     desc: 'How do inclement weather conditions impact public transportation volume in Seoul, and how do commuters describe rainy travel experiences in online texts?',
@@ -15,7 +8,7 @@ export const PROJECTS = [
       "My teammate built the companion text branch in the same repo: 492 Korean-language YouTube comments about rainy commutes, coded by an LLM for issue type and emotion, then tested for association (χ² = 21.69, p = 0.0099, Cramér's V = 0.245 across the 120 relevant comments). We reported it as small-to-moderate and flagged the sparse expected cell counts rather than overstating it.",
       'Rain moved how commuters felt about the trip more clearly than how many of them took it.',
     ],
-    tags: ['python', 'pandas', 'scipy', 'seaborn', 'seoul open data api', 'open-meteo'],
+    tags: ['python', 'pandas', 'scipy', 'seaborn'],
     link: 'https://github.com/Jamescorino8/seoul-transit-weather-analysis',
   },
   {
@@ -33,7 +26,7 @@ export const PROJECTS = [
       "Everything above it is built on that foundation: 16- and 32-bit words, a ripple-carry adder, a multiplier, a shifter, then an ALU dispatching across them. Above that sits a 1000-word simulated DRAM, a two-level cache hierarchy, an assembler, and a processor running fetch-decode-execute-store over the course's 21-instruction ISA. Instructions are 16 bits wide, two packed into each 32-bit memory word: a 5-bit opcode, a mode bit choosing register or immediate operands, and two 5-bit operand fields.",
       "Then I measured it. I wrote three benchmark programs in the simulator's own assembly, a register-only loop, a sequential array traversal, and a 100-node linked-list walk, and ran each under four cache configurations, counting cycles. The register-only program fell from 61,510 cycles with no cache to 2,980 with an L1 instruction cache, a 20x improvement. The linked list fell from 392,704 to 100,334 under the full hierarchy. Adding L2 data caching cut the array program from 68,162 to 50,622. The gains tracked how sequential the access pattern was.",
     ],
-    tags: ['java', 'maven', 'junit', 'computer architecture', 'cache performance analysis'],
+    tags: ['java', 'maven', 'junit'],
     link: 'https://github.com/Jamescorino8/cpu-simulator',
   },
   {
@@ -45,7 +38,7 @@ export const PROJECTS = [
       'The networking is raw sockets. getaddrinfo with AF_UNSPEC, so one code path works over IPv4 or IPv6, then socket/bind/listen/accept on the server and connect on the client. The wire protocol is deliberately small: the shooter sends a coordinate like "C7", the defender checks its own grid and replies "Hit!" or "Miss!". Each board stays on the machine that owns it — neither process ever holds the other\'s ship positions.',
       'Boards are dynamically allocated 10x10 arrays of enums. Every malloc is checked, and a failure part-way through allocating rows frees the rows already allocated before exiting instead of leaking them. Verified leak-free with Valgrind.',
     ],
-    tags: ['c', 'posix sockets', 'tcp/ip', 'dynamic memory management', 'docker dev container'],
+    tags: ['c', 'posix sockets', 'tcp', 'valgrind'],
     link: 'https://github.com/Jamescorino8/battleship-c',
   },
   {
@@ -57,7 +50,7 @@ export const PROJECTS = [
       'The solver runs backtracking search with forward checking. Each candidate assignment is tested against all-different constraints and the program\'s rules, then the domains of the unassigned variables are pruned before recursing. The design decision I\'d point to: rule evaluation returns a nullable Boolean, where null means "not yet determinable." That way a partially assigned puzzle can\'t falsely violate a rule referring to variables the search hasn\'t reached — dead branches get cut, merely incomplete ones get explored.',
       'A command-line entry point takes a source file through the whole pipeline and prints the solution. Sixteen JUnit tests cover the lexer and parser across four suites, twelve of which I wrote, and a separate driver runs the solver against eight logic puzzles.',
     ],
-    tags: ['java', 'maven', 'junit', 'recursive-descent parsing', 'backtracking search with forward checking'],
+    tags: ['java', 'maven', 'junit'],
     link: 'https://github.com/Jamescorino8/nusha-lang',
   },
 ]

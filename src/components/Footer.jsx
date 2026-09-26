@@ -29,6 +29,11 @@ export default function Footer() {
           <path d="M16 17H8"/>
         </svg>
       </a>
+      <div className="footer-end">
+        <span>© corino 2026</span>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/Jamescorino8/portfolio" target="_blank" rel="noopener noreferrer" aria-label="Site source code" className="footer-source">source</a>
+      </div>
     </footer>
   )
 }

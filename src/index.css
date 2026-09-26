@@ -188,6 +188,25 @@ footer {
   opacity: 1;
 }
 
+.footer-end {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+.footer-end:has(.footer-source:hover) { opacity: 0.75; }
+
+.footer-source {
+  color: var(--text-color);
+  text-underline-offset: 3px;
+}
+
 /* ─── ABOUT ITEMS ───────────────────────────── */
 .about-items {
   border-left: 1px solid transparent;
@@ -338,6 +357,8 @@ footer {
   nav { margin-bottom: 1.5rem; }
   .nav-links { gap: 1.25rem; }
   .page-wrapper { padding: 1rem; }
+  footer { flex-wrap: wrap; row-gap: 1rem; }
+  .footer-end { margin-left: 0; flex-basis: 100%; }
   nav { flex-direction: row; }
 }
 
