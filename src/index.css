@@ -208,6 +208,35 @@ footer {
 }
 
 /* ─── ABOUT ITEMS ───────────────────────────── */
+/* h2 on top like the other pages; photo beside the list at the list's height
+   (--list-height, measured in Index.jsx) and its own aspect ratio — no crop. */
+.about {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 2rem;
+  padding-right: 1.25rem; /* mirrors .about-items padding-left */
+}
+
+/* Grid items' margins don't collapse, so drop the h2's top margin to keep
+   the same h1 → h2 spacing as the other pages. */
+.about h2 { grid-column: 1 / -1; margin-top: 0; }
+
+/* align-self: start so the list's height is its content, not the row's
+   (the row is partly sized by the photo, which is sized by the list). */
+.about .about-items { grid-column: 1; grid-row: 2; align-self: start; }
+
+.about-photo {
+  grid-column: 2;
+  grid-row: 2;
+  height: var(--list-height, 0);
+  width: auto;
+  border: 1px solid var(--border-color);
+  filter: grayscale(1);
+  transition: filter 0.4s ease;
+}
+
+.about-photo:hover { filter: grayscale(0); }
+
 .about-items {
   border-left: 1px solid transparent;
   padding-left: 1.25rem;
@@ -426,6 +455,9 @@ footer {
   .page-wrapper { padding: 1rem; }
   footer { flex-wrap: wrap; row-gap: 1rem; }
   .footer-end { margin-left: 0; flex-basis: 100%; }
+  .about { grid-template-columns: 1fr; padding-right: 0; }
+  .about .about-items { grid-row: 3; }
+  .about-photo { grid-column: 1; width: 140px; height: auto; margin-bottom: 1.5rem; }
   .note-row { flex-wrap: wrap; row-gap: 0.25rem; }
   .note-tag { margin-left: auto; }
   .note-title { order: 1; flex-basis: 100%; }
