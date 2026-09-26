@@ -266,6 +266,73 @@ footer {
   letter-spacing: 0.05em;
 }
 
+.note-external { opacity: 0.45; }
+
+.note-desc {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-top: 0.15rem;
+}
+
+/* ─── NOTE PAGE ─────────────────────────────── */
+.note-body {
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.note-body p { margin: 0 0 1rem; }
+
+/* Body headings: override the page h1/h2 styles (nowrap, hidden until typed). */
+.note-body h1,
+.note-body h2,
+.note-body h3 {
+  font-size: 1.1rem;
+  white-space: normal;
+  letter-spacing: normal;
+  opacity: 1;
+  margin: 2rem 0 0.75rem;
+}
+
+.note-body a { color: var(--text-color); text-underline-offset: 3px; }
+
+.note-body code {
+  font-family: inherit;
+  font-size: 0.9em;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid var(--border-color);
+}
+
+.note-body pre {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.note-body pre code { padding: 0; border: 0; }
+
+.note-body blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border-color);
+  opacity: 0.8;
+}
+
+.note-body img { max-width: 100%; }
+
+.note-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.note-back:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
 /* ─── SECTIONS ──────────────────────────────── */
 .page-section {
   margin-bottom: 2rem;
@@ -359,6 +426,9 @@ footer {
   .page-wrapper { padding: 1rem; }
   footer { flex-wrap: wrap; row-gap: 1rem; }
   .footer-end { margin-left: 0; flex-basis: 100%; }
+  .note-row { flex-wrap: wrap; row-gap: 0.25rem; }
+  .note-tag { margin-left: auto; }
+  .note-title { order: 1; flex-basis: 100%; }
   nav { flex-direction: row; }
 }
 
