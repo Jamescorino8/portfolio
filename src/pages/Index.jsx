@@ -35,7 +35,7 @@ export default function Index() {
           <p className="stagger-item about-item">did research @ skku infolab.</p>
           <p className="stagger-item about-item">looking for summer '27 internships.</p>
         </div>
-        <img src={photo} alt="photo of james" className="stagger-item about-photo" />
+        <img src={photo} alt="james corino" className="stagger-item about-photo" />
       </section>
 
       <div className="cta"></div>
