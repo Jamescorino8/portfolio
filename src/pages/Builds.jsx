@@ -5,13 +5,13 @@ import { PROJECTS } from '../data/ProjectsList.js'
 
 export default function Builds() {
   const scope = usePageAnimation({
-    h1Text: 'what am i working on?',
+    h1Text: 'what have i built?',
     h2Text: 'builds',
   })
 
   return (
     <div ref={scope} className="page">
-      <h1 aria-label="what am i working on?"></h1>
+      <h1 aria-label="what have i built?"></h1>
 
       <section className="page-section">
         <h2 aria-label="builds"></h2>
