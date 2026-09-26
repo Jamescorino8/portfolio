@@ -266,7 +266,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  gap: 1rem;
 }
+
+.project-year { flex-shrink: 0; }
 
 .project-name { font-weight: bold; }
 
@@ -279,6 +282,33 @@ footer {
   opacity: 0.8;
   margin: 0;
 }
+
+.project-details summary {
+  list-style: none;
+  width: fit-content;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.project-details summary::-webkit-details-marker { display: none; }
+.project-details summary:hover { opacity: 1; }
+.project-details .less,
+.project-details[open] .more { display: none; }
+.project-details[open] .less { display: inline; }
+
+.project-details-body {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.project-details-body p { margin: 0 0 0.75rem; }
+.project-details-body p:last-child { margin-bottom: 0; }
 
 .project-tags {
   display: flex;
